@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Wedding site for Iris and Russell",
   "scripts": {
+    "postinstall": "gulp styles",
     "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
