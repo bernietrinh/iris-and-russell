@@ -1,0 +1,149 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+@font-face {
+  font-family: 'Impact';
+  src: url('../fonts/Impact.ttf');
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src:
+    url('../fonts/HelveticaNeue.ttf') format('truetype'),
+    url('../fonts/HelveticaNeue.woff')  format('woff'),
+    url('../fonts/HelveticaNeue.woff2')  format('woff2')
+}
+
+@font-face {
+  font-family: "Helvetica Neue Bold";
+  src:
+    url('../fonts/HelveticaNeue-Bold.ttf') format('truetype'),
+    url('../fonts/HelveticaNeue-Bold.woff')  format('woff'),
+    url('../fonts/HelveticaNeue-Bold.woff2')  format('woff2')
+}
+
+// headline ==============================================
+@mixin headline-font {
+  font-family: 'Impact', Helvetica, Arial;
+}
+
+h1,
+h2,
+.headline {
+  @include headline-font;
+}
+
+.headline {
+  text-transform: uppercase;
+}
+
+.headline-21px {
+  @include headline-font;
+  font-size: 21px;
+}
+
+.headline-24px {
+  @include headline-font;
+  font-size: 24px;
+}
+
+.headline-28px {
+  @include headline-font;
+  font-size: 28px;
+}
+
+.headline-32px {
+  @include headline-font;
+  font-size: 32px;
+}
+
+.headline-42px {
+  @include headline-font;
+  font-size: 42px;
+}
+
+.headline-48px {
+  @include headline-font;
+  font-size: 48px;
+}
+
+// headline alt ===========================================
+@mixin headline-font-alt {
+  font-family: 'Open Sans', Helvetica, Arial;
+}
+
+.headline-alt-21px {
+  @include headline-font-alt;
+  font-size: 21px;
+}
+
+.headline-alt-24px {
+  @include headline-font-alt;
+  font-size: 24px;
+}
+
+.headline-alt-28px {
+  @include headline-font-alt;
+  font-size: 28px;
+}
+
+
+// subtitle ================================================
+@mixin subtitle-font {
+  font-family: 'Open Sans', Helvetica, Arial;
+}
+
+
+h3,
+h4,
+h5,
+.subtitle {
+  @include subtitle-font;
+  font-size: 18px;
+  color: $primary-grey;
+}
+
+.subtitle-18px {
+  @include subtitle-font;
+}
+
+.subtitle-21px {
+  @include subtitle-font;
+  font-size: 21px;
+}
+
+.subtitle-24px {
+  @include subtitle-font;
+  font-size: 24px;
+}
+
+
+// body ===================================================
+@mixin body-font {
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+}
+
+p,
+a,
+.body {
+  @include body-font;
+}
+
+.body-14px {
+  @include body-font;
+  font-size: 14px;
+}
+
+.body-16px {
+  @include body-font;
+  font-size: 16px;
+}
+
+.body-18px {
+  @include body-font;
+  font-size: 18px;
+}
+
+.body-21px {
+  @include body-font;
+  font-size: 21px;
+}

@@ -1,0 +1,23 @@
+.about {
+  min-height: 60vh;
+}
+
+.about-content {
+  width: 60%;
+  margin: 45px auto;
+  text-align: center;
+}
+
+.about-title {
+  margin-bottom: 10px;
+}
+
+.about-subtitle {
+  margin-bottom: 30px;
+}
+
+@include media-query(tablet-and-up) {
+  .about-content {
+    width: 40%;
+  }
+}

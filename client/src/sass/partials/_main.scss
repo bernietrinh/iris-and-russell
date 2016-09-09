@@ -1,0 +1,60 @@
+.main {
+  background: linear-gradient(
+                  rgba(0, 65, 90, 0.2),
+                  rgba(0, 65, 90, 0.2)
+  ), url("../img/main.jpg") no-repeat top center;
+
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+nav.main-nav {
+  text-align: center;
+  padding-top: 5px;
+
+  a {
+    text-transform: uppercase;
+    color: $white;
+    text-decoration: none;
+    &:not(first-child):not(last-child) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.main-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.main-title {
+  letter-spacing: 14px;
+  text-align: center;
+
+}
+
+.main-subtitle {
+  padding-top: 12px;
+  text-align: center;
+  letter-spacing: 8px;
+  line-height: 28px;
+}
+
+.main-button {
+  position: absolute;
+  bottom: 25px;
+  left: 40px;
+  color: rgba(265, 265, 265, 0.8);
+}
+
+@include media-query(tablet-and-up) {
+
+  .main-content {
+    top: 30%;
+  }
+}

@@ -1,0 +1,41 @@
+$white: #FFFFFF;
+$opaque-white: rgba(265, 265, 265, .8);
+$light-purple: #DBD0D5;
+$primary-purple: #554853;
+$secondary-purple: #d6d0d0;
+$dark-grey: #515257;
+$primary-grey: #7D7C84;
+$light-grey: #c4d0d9;
+
+.white {
+  color: $white;
+}
+
+.primary-purple {
+  color: $primary-purple;
+}
+
+.light-purple {
+  color: $light-purple;
+}
+
+.dark-grey {
+  color: $dark-grey;
+}
+
+.primary-grey {
+  color: $primary-grey;
+}
+
+
+.light-grey {
+  color: $light-grey;
+}
+
+.secondary-purple {
+  color: $secondary-purple;
+}
+
+.opaque-white {
+  color: $opaque-white;
+}

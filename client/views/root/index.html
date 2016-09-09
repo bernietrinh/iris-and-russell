@@ -1,0 +1,102 @@
+
+<div class="section main">
+
+    <nav class="main-nav">
+        <a class="body-16px" href="#about">About</a>
+        <a class="body-16px" href="#gallery">Gallery</a>
+        <a class="body-16px" href="#dayof">The Day Of</a>
+        <a class="body-16px" href="">RSVP</a>
+    </nav>
+
+    <section class="main-content">
+        <h1 class="headline-48px main-title opaque-white">Iris + Russell</h1>
+        <h3 class="headline-21px main-subtitle light-grey">Saturday May 13, 2017 . 5:30 PM</h3>
+        <h3 class="headline-21px main-subtitle light-grey">Sassafraz</h3>
+    </section>
+
+    <button class="button main-button headline-alt-21px">RSVP</button>
+</div>
+
+<div class="section about" id="about">
+
+    <section class="about-content">
+        <h2 class="headline-42px about-title primary-purple">About Us</h2>
+        <h3 class="subtitle-24px about-subtitle dark-grey">This is the subtitle</h3>
+        <p class="body-18px primary-grey">
+            I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.
+        </p>
+    </section>
+</div>
+
+<div class="section gallery" id="gallery">
+    
+    <div class="gallery-container">
+
+        <uib-carousel
+                active="0"
+                no-pause="true"
+                interval="5000"
+                no-wrap="false"
+                template-url="scripts/angular-bootstrap-npm/dist/template/carousel/carousel.html">
+
+            <uib-slide
+                    ng-repeat="(index, photo) in photos"
+                    index="index"
+                    template-url="scripts/angular-bootstrap-npm/dist/template/carousel/slide.html">
+                <div class="gallery-image" style="background-image: url({{ photo }})"></div>
+            </uib-slide>
+
+        </uib-carousel>
+    </div>
+</div>
+
+<div class="section dayof" id="dayof">
+    <div class="dayof-content">
+        <!--<h2 class="headline-32px about-title primary-purple">The</h2>-->
+        <!--<h2 class="headline-48px about-title primary-purple">Day Of</h2>-->
+
+        <div class="dayof-column col-md-6">
+            <h3 class="dayof-headline headline-alt-28px dark-grey">When</h3>
+            <h4 class="dayof-headline-alt headline-alt-21px">May 13, 2017</h4>
+            <p class="dayof-body body-18px">Wedding Ceremony: 5:30 PM</p>
+            <p class="dayof-body body-18px">Cocktails: 6:00 PM</p>
+            <p class="dayof-body body-18px">Reception: 7:00 PM</p>
+        </div>
+        <div class="dayof-column col-md-6">
+            <h3 class="dayof-headline headline-alt-28px dark-grey">Where</h3>
+            <h4 class="dayof-headline-alt headline-alt-21px">Sassfraz</h4>
+            <p class="dayof-body body-18px">100 Cumberland St.</p>
+            <p class="dayof-body body-18px">Toronto, ON</p>
+            <p class="dayof-body body-18px">M5R 1A6</p>
+        </div>
+    </div>
+</div>
+
+<div class="section getting-there">
+
+    <div class="getting-there-content">
+
+        <h2 class="headline-alt-28px opaque-white">Parking</h2>
+
+        <p class="body-16px secondary-purple">I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+
+        <h2 class="headline-alt-28px opaque-white">Accommodations</h2>
+
+        <p class="body-16px secondary-purple">I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+
+        <a target="_blank" class="button getting-there-button headline-alt-18px light-purple" href="//www.google.ca/maps?q=sassafraz&ion=1&espv=2&bav=on.2,or.r_cp.&bvm=bv.131783435,d.dmo&biw=1267&bih=736&dpr=2&um=1&ie=UTF-8&sa=X&ved=0ahUKEwjbpv2e3YLPAhWIdh4KHW8jAQEQ_AUIBygC">
+            View Map
+        </a>
+
+    </div>
+
+</div>
+
+<div class="section rsvp">
+    <div class="rsvp-content">
+        <h3 class="headline-alt-24px opaque-white">We're so excited to celebrate with you</h3>
+        <p class="body-21px opaque-white">Let us know if you're coming</p>
+        <button class="button opaque-white rsvp-button headline-alt-21px">RSVP</button>
+        <h2 class="headline-alt-28px opaque-white">#irisandrussell</h2>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="iris-and-russell">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <title>Iris and Russell</title>
+
+    <link rel="stylesheet" href="src/css/app.css">
+
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/angular-aria.min.js"></script>
+    <script src="lib/angular-messages.min.js"></script>
+    <script src="lib/angular-material.min.js"></script>
+    <script src="scripts/angular-bootstrap-npm/dist/angular-bootstrap.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="controllers/root.js"></script>
+    <script src="controllers/admin.js"></script>
+    <script src="services/rsvpService.js"></script>
+</head>
+
+<body>
+
+    <header></header>
+
+    <div ng-view></div>
+
+    <footer><p class="dark-grey">Copyright 2016. Iris and Russell</p></footer>
+</body>
+
+
+
+</html>

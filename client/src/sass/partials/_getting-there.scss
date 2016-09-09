@@ -1,0 +1,39 @@
+.getting-there {
+  min-height: initial;
+  background: linear-gradient(
+                  rgba(85, 72, 83, 0.4),
+                  rgba(85, 72, 83, 0.4)),
+              url('../img/getting-there.jpg')
+              no-repeat bottom center;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
+.getting-there-content {
+  width: 80%;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.getting-there-button {
+  margin-top: 15px;
+  color: $light-purple;
+  display: inline-block;
+  transition: color 2s;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+@include media-query(tablet-and-up) {
+  .getting-there-content {
+    width: 40%;
+  }
+}
