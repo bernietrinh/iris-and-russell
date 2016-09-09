@@ -33,7 +33,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "node-sass": "^3.2.0",
-    "run-sequence": "^1.1.5",
+    "run-sequence": "^1.1.5"
   },
   "engines": {
     "node": "^6.4.0"
