@@ -1,5 +1,5 @@
 angular.module('iris-and-russell')
-    .controller('RootController', ['$scope', '$rsvpService', function ($scope, $rsvpService) {
+    .controller('RootController', ['$scope', '$uibModal', function ($scope, $uibModal) {
 
         $scope.photos = [
                 'src/img/slide1.jpg',
@@ -12,5 +12,25 @@ angular.module('iris-and-russell')
                 'src/img/slide11.jpg',
                 'src/img/slide12.jpg'
         ];
-    }]
-);
+
+        $scope.showRsvpForm = showForm;
+
+            function showForm() {
+                $uibModal.open({
+                    animation: true,
+                    ariaLabelledBy: 'rsvp-form',
+                    controller: 'RsvpFormModalController',
+                    // controllerAs: '$scope',
+                    templateUrl: 'views/root/rsvp-form.html'
+                });
+            }
+
+    }])
+    .controller('RsvpFormModalController', ['$scope', '$rsvpService', '$uibModalInstance', function ($scope, $rsvpService, $uibModalInstance) {
+
+        $scope.dismiss = function () {
+            $uibModalInstance.dismiss();
+        }
+
+
+    }]);

@@ -74,7 +74,8 @@ gulp.task('scripts', function() {
 // ---------- Tasks to clean out the build directory
 gulp.task('clean:css',function() {
     return del([
-        'src/css/**/*'
+        'src/css/*.css',
+        '!src/css/lib'
     ]);
 });
 gulp.task('clean:js',function() {

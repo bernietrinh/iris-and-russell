@@ -75,9 +75,11 @@ app.listen(config.port, function () {
 
 const clientPath = __dirname + "/../client/";
 const scriptPath = __dirname + '/../node_modules/';
+const uibPath = __dirname + '/../node_modules/angular-bootstrap-npm/dist/template';
 
 app.use("/", express.static(clientPath));
 app.use('/scripts', express.static(scriptPath));
+app.use('/template', express.static(uibPath));
 
 app.get('/', function(req, res) {
 

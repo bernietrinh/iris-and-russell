@@ -1,0 +1,28 @@
+.modal.fade:not(.in) .modal-dialog {
+  -webkit-transform: translate3d(25%, 0, 0);
+  transform: translate3d(25%, 0, 0);
+}
+
+.modal-dialog {
+  margin: 0;
+  width: initial;
+}
+
+.modal-content {
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  background: $white;
+  position: fixed;
+  height: 100vh;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@include media-query(tablet-and-up) {
+  .modal-content {
+    width: 50%;
+  }
+}

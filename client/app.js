@@ -1,4 +1,4 @@
-angular.module('iris-and-russell', ['ngAria', 'ngAnimate', 'ngMessages', 'ngMaterial', 'ngRoute', 'ui.bootstrap'])
+angular.module('iris-and-russell', ['ngAria', 'ngAnimate', 'ngMessages', 'ngRoute', 'ui.bootstrap'])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
         $routeProvider
