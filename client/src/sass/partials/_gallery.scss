@@ -5,15 +5,11 @@
 .gallery-container {
   width: 100%;
   height: 100%;
-
-  .carousel {
-    //height: 100vh;
-  }
 }
 
 .gallery-image {
   width: 100%;
-  height: 110vh;
+  height: 95vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -21,6 +17,7 @@
 
 @include media-query(tablet-and-up) {
   .gallery-image {
+    height: 110vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
