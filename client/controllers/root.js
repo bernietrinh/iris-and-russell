@@ -30,7 +30,29 @@ angular.module('iris-and-russell')
 
         $scope.dismiss = function () {
             $uibModalInstance.dismiss();
-        }
+        };
 
+        $scope.countries = [
+            {
+                name : "Canada",
+                code: "ca"
+            },
+            {
+                name : "USA",
+                code: "us"
+            },
+            {
+                name : "Australia",
+                value: "au"
+            }
+        ];
+
+        $scope.primary = {};
+
+        $scope.primary = {
+            plusOne : false
+        };
+
+        console.log($scope.primary);
 
     }]);

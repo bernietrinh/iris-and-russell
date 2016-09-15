@@ -1,6 +1,90 @@
 <div class="rsvp-form">
 
-    <i ng-click="dismiss()" class="rsvp-form-dismiss glyphicon glyphicon-remove"></i>
-    <h1>Let us know you're coming!</h1>
+    <!--<md-content>-->
+        <i ng-click="dismiss()" class="rsvp-form-dismiss glyphicon glyphicon-remove"></i>
+        <h1>Let us know you're coming!</h1>
+
+        <form name="rsvpForm" ng-submit="submit()">
+
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>First name</label>
+                    <input ng-model="primary.firstName">
+                </md-input-container>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Last name</label>
+                    <input ng-model="primary.lastName">
+                </md-input-container>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>E-mail</label>
+                    <input ng-model="primary.email">
+                </md-input-container>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Phone Number</label>
+                <input name="phone" ng-model="primary.phone" ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" />
+
+                <div class="hint">(###) ###-####</div>
+
+                <div ng-messages="userForm.phone.$error">
+                    <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                </div>
+            </md-input-container>
+
+            <md-checkbox ng-model="primary.plusOne" aria-label="I'm bringing someone">
+                Checkbox 1: I'm bringing a plus one
+            </md-checkbox>
+
+            <button class="button">RSVP</button>
+
+            <!--<md-input-container class="md-block" flex-gt-sm>-->
+                <!--<label>Address</label>-->
+                <!--<input ng-model="primary.address">-->
+            <!--</md-input-container>-->
+
+
+            <!--<md-input-container class="md-block" flex-gt-xs>-->
+
+                <!--<label>Postal/Zip Code</label>-->
+                <!--<input ng-model="primary.postal">-->
+
+            <!--</md-input-container>-->
+
+            <!--<md-input-container class="md-block" flex-gt-xs>-->
+
+                <!--<label>City</label>-->
+                <!--<input ng-model="primary.city">-->
+
+            <!--</md-input-container>-->
+
+            <!--<md-input-container class="md-block" flex-gt-sm>-->
+                <!--<label>Province/State</label>-->
+                <!--<input ng-model="primary.province">-->
+            <!--</md-input-container>-->
+
+
+            <!--<md-input-container>-->
+                <!--<label>Country</label>-->
+                <!--<md-select ng-model="primary.country">-->
+                    <!--<md-option ng-repeat="country in countries" ng-value="country.code" ng-disabled="$index === 1">-->
+                        <!--{{country.name}}-->
+                    <!--</md-option>-->
+                <!--</md-select>-->
+            <!--</md-input-container>-->
+
+        </form>
 
 </div>
