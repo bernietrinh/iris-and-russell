@@ -26,10 +26,6 @@ nav.main-nav {
 }
 
 .main-content {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
 }
 
@@ -56,6 +52,9 @@ nav.main-nav {
 @include media-query(tablet-and-up) {
 
   .main-content {
+    position: absolute;
     top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
