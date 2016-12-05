@@ -1,5 +1,11 @@
-angular.module('iris-and-russell', ['ngAria', 'ngAnimate', 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.bootstrap'])
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+angular.module('iris-and-russell', ['ngAria', 'ngAnimate', 'ngMaterial', 'ngMessages', 'ngRoute', 'ui.bootstrap', 'duScroll'])
+
+    .config(['$routeProvider',
+        '$locationProvider',
+        '$mdThemingProvider',
+        function ($routeProvider,
+                  $locationProvider,
+                  $mdThemingProvider) {
 
         $routeProvider
             .when('/', {
@@ -13,4 +19,9 @@ angular.module('iris-and-russell', ['ngAria', 'ngAnimate', 'ngMaterial', 'ngMess
 
         $locationProvider.html5Mode(true);
 
-    }]);
+        $mdThemingProvider.theme('default')
+            .primaryPalette('deep-purple')
+            .accentPalette('deep-purple');
+
+    }])
+    .value('duScrollDuration', 600);

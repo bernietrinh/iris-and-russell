@@ -19,9 +19,12 @@
   top: 0;
   bottom: 0;
   right: 0;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
+//.modal-open {
+//  overflow: auto;
+//}
 @include media-query(tablet-and-up) {
   .modal-content {
     width: 50%;

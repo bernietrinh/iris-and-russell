@@ -13,6 +13,11 @@ angular.module('iris-and-russell')
                 'src/img/slide12.jpg'
         ];
 
+        $scope.scrollTo = function (el) {
+
+        };
+
+
         $scope.showRsvpForm = showForm;
 
             function showForm() {
@@ -26,33 +31,38 @@ angular.module('iris-and-russell')
             }
 
     }])
-    .controller('RsvpFormModalController', ['$scope', '$rsvpService', '$uibModalInstance', function ($scope, $rsvpService, $uibModalInstance) {
+    .controller('RsvpFormModalController',
+        ['$scope', '$rsvpService', '$uibModalInstance',
+        function ($scope, $rsvpService, $uibModalInstance) {
+
+        $scope.error = false;
+        $scope.success = false;
 
         $scope.dismiss = function () {
             $uibModalInstance.dismiss();
         };
 
         $scope.countries = [
-            {
-                name : "Canada",
-                code: "ca"
-            },
-            {
-                name : "USA",
-                code: "us"
-            },
-            {
-                name : "Australia",
-                value: "au"
-            }
+            "Canada",
+            "USA",
+            "Australia"
         ];
 
-        $scope.primary = {};
+        $scope.submitRsvp = function (primary) {
 
-        $scope.primary = {
-            plusOne : false
+            $rsvpService.postRsvp(primary)
+            .then (function (res) {
+
+                $scope.success = true;
+            })
+            .catch (function (err) {
+
+                $scope.error = true;
+            });
         };
 
-        console.log($scope.primary);
+        $scope.retryRsvp = function () {
+          $scope.error = false;
+        };
 
     }]);

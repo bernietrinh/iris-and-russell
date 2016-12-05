@@ -13,10 +13,11 @@ nav.main-nav {
   text-align: center;
   padding-top: 5px;
 
-  a {
+  button {
+    background: none;
+    border: none;
     text-transform: uppercase;
     color: $white;
-    text-decoration: none;
     &:not(first-child):not(last-child) {
       margin-left: 10px;
       margin-right: 10px;

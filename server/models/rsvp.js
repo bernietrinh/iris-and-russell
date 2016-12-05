@@ -10,12 +10,8 @@ var rsvpSchema = new mongoose.Schema({
     city  : { type: String, required: true },
     country  : { type: String, required: true },
     comments : { type: String, required: false },
-    guest : {
-        firstName : String,
-        lastName : String,
-        allergies : [ { allergy : String } ]
-    },
-    allergies : [ { allergy : String } ],
+    guestName : { type: String, required: false },
+    allergies : { type: String, required: false },
     children : { type: Number, required: true, default: 0 }
 });
 

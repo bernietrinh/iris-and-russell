@@ -1,11 +1,70 @@
 .rsvp-form {
   position: relative;
   padding: 20px;
+
+  h1 {
+    color: $primary-purple;
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    color: $primary-purple;
+  }
+
+  md-input-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  input[name=allergies] {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 40px;
+    border-radius: 3px;
+    border: 1px solid $secondary-purple;
+
+  }
+
+  .layout-row {
+    margin-bottom: 30px;
+  }
+
+  .rsvp-optional {
+    height: 30px;
+  }
+
+  .rvsp-button.button {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+  }
+
+  .prompt {
+    border: 2px solid;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+
+    &.success {
+      color: $primary-purple;
+    }
+
+    &.error {
+      color: $error;
+      margin-bottom: 30px;
+    }
+  }
 }
 
 .rsvp-form-dismiss {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 36px;
+  font-size: 22px;
+  color: $primary-purple;
+}
+
+.md-select-menu-container {
+  z-index: 2000;
 }

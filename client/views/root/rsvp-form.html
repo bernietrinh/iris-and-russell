@@ -1,90 +1,150 @@
 <div class="rsvp-form">
 
     <!--<md-content>-->
-        <i ng-click="dismiss()" class="rsvp-form-dismiss glyphicon glyphicon-remove"></i>
-        <h1>Let us know you're coming!</h1>
+    <i ng-click="dismiss()" class="rsvp-form-dismiss glyphicon glyphicon-remove"></i>
+    <h1>Let us know you're coming!</h1>
 
-        <form name="rsvpForm" ng-submit="submit()">
+    <form name="rsvpForm" ng-submit="submit()" ng-hide="success || error">
 
-            <md-input-container class="md-block" flex-gt-xs>
+        <!-- FIRST & LAST NAME -->
+        <div layout="row">
+            <md-input-container class="md-block" flex="50">
+                <label>First name</label>
+                <input ng-model="primary.firstName" required name="firstName">
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>First name</label>
-                    <input ng-model="primary.firstName">
-                </md-input-container>
-
-            </md-input-container>
-
-            <md-input-container class="md-block" flex-gt-xs>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Last name</label>
-                    <input ng-model="primary.lastName">
-                </md-input-container>
-
-            </md-input-container>
-
-            <md-input-container class="md-block" flex-gt-xs>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>E-mail</label>
-                    <input ng-model="primary.email">
-                </md-input-container>
-
-            </md-input-container>
-
-            <md-input-container class="md-block" flex-gt-sm>
-                <label>Phone Number</label>
-                <input name="phone" ng-model="primary.phone" ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" />
-
-                <div class="hint">(###) ###-####</div>
-
-                <div ng-messages="userForm.phone.$error">
-                    <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                <div ng-messages="rsvpForm.firstName.$error">
+                    <div ng-message="required" class="my-message">You must enter a first name.</div>
                 </div>
             </md-input-container>
 
-            <md-checkbox ng-model="primary.plusOne" aria-label="I'm bringing someone">
-                Checkbox 1: I'm bringing a plus one
-            </md-checkbox>
 
-            <button class="button">RSVP</button>
+            <md-input-container class="md-block" flex="50">
+                <label>Last name</label>
+                <input ng-model="primary.lastName" required name="lastName">
 
-            <!--<md-input-container class="md-block" flex-gt-sm>-->
-                <!--<label>Address</label>-->
-                <!--<input ng-model="primary.address">-->
-            <!--</md-input-container>-->
+                <div ng-messages="rsvpForm.lastName.$error">
+                    <div ng-message="required" class="my-message">You must enter a last name.</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <!-- EMAIL & PHONE NUMBER -->
+        <div layout="row">
+            <md-input-container class="md-block" flex="50">
+                <label>E-mail</label>
+                <input ng-model="primary.email" required type="email" name="email">
+                <div ng-messages="rsvpForm.email.$error">
+                    <div ng-message="required" class="my-message">You must enter an e-mail.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex="50">
+                <label>Phone Number</label>
+                <input name="phone" ng-model="primary.phone" ng-pattern="/^[0-9]{10}$/" required/>
+
+                <div ng-messages="rsvpForm.phone.$error">
+                    <div ng-message="required" class="my-message">You must enter a phone number.</div>
+                    <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                </div>
+            </md-input-container>
+        </div>
 
 
-            <!--<md-input-container class="md-block" flex-gt-xs>-->
+        <!-- ADDRESS & POSTAL CODE -->
+        <div layout="row">
+            <md-input-container class="md-block" flex="70">
+                <label>Address</label>
+                <input ng-model="primary.address" name="address" required>
+                <div ng-messages="rsvpForm.address.$error">
+                    <div ng-message="required" class="my-message">You must enter an address.</div>
+                </div>
+            </md-input-container>
 
-                <!--<label>Postal/Zip Code</label>-->
-                <!--<input ng-model="primary.postal">-->
+            <md-input-container class="md-block" flex="30">
+                <label>Postal Code</label>
+                <input name="postalCode" ng-model="primary.postalCode" placeholder="A1B 2C3"
+                       required md-maxlength="6">
 
-            <!--</md-input-container>-->
+                <div ng-messages="rsvpForm.postalCode.$error" role="alert" multiple>
+                    <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                    <div ng-message="md-maxlength" class="my-message">
+                        Postal codes are only 6 characters...
+                    </div>
+                </div>
+            </md-input-container>
+        </div>
 
-            <!--<md-input-container class="md-block" flex-gt-xs>-->
+        <!-- CITY, PROVINCE, COUNTRY -->
+        <div layout="row">
+            <md-input-container class="md-block" flex="40">
+                <label>City</label>
+                <input ng-model="primary.city">
+            </md-input-container>
 
-                <!--<label>City</label>-->
-                <!--<input ng-model="primary.city">-->
+            <md-input-container class="md-block" flex="20">
+                <label>Province/State</label>
+                <input type="text" name="provState" required>
+                <div ng-messages="rsvpForm.provState.$error" role="alert">
+                    <div ng-message="required" class="my-message">You must supply a province or state.</div>
+                </div>
+            </md-input-container>
 
-            <!--</md-input-container>-->
+            <md-input-container class="md-block" flex="40">
+                <label>Country</label>
+                <md-select ng-model="primary.country" required>
+                    <md-option ng-repeat="country in countries" value="{{country}}">
+                        {{ country }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
 
-            <!--<md-input-container class="md-block" flex-gt-sm>-->
-                <!--<label>Province/State</label>-->
-                <!--<input ng-model="primary.province">-->
-            <!--</md-input-container>-->
 
 
-            <!--<md-input-container>-->
-                <!--<label>Country</label>-->
-                <!--<md-select ng-model="primary.country">-->
-                    <!--<md-option ng-repeat="country in countries" ng-value="country.code" ng-disabled="$index === 1">-->
-                        <!--{{country.name}}-->
-                    <!--</md-option>-->
-                <!--</md-select>-->
-            <!--</md-input-container>-->
+        <div layout="row" class="rsvp-optional">
+            <md-input-container flex="40" flex-gt-sm="35">
+                <md-checkbox ng-model="primary.guest">
+                    I'm bringing a plus one
+                </md-checkbox>
+            </md-input-container>
 
-        </form>
+            <md-input-container flex="60" flex-gt-sm="40" ng-show="primary.guest">
+                <label>Name</label>
+                <input type="text" name="primary.guestName">
+            </md-input-container>
+
+        </div>
+
+        <div layout="row" class="rsvp-optional">
+            <md-input-container flex="40" flex-gt-sm="35">
+                <md-checkbox ng-model="primary.hasChildren">
+                    I'm bringing children
+                </md-checkbox>
+            </md-input-container>
+
+            <md-input-container flex="20" flex-gt-sm="10" ng-show="primary.hasChildren">
+                <label>Number</label>
+                <input type="number" step="any" name="primary.children" ng-model="primary.children" min="1"
+                       max="5" ng-pattern="/^1234$/" value="1"/>
+            </md-input-container>
+        </div>
+
+        <h2 class="headline-alt-21px">Allergies / Additional comments</h2>
+        <input type="text" name="allergies" />
+
+        <button class="button rvsp-button" ng-click="submitRsvp(primary)">RSVP</button>
+
+    </form>
+
+    <div class="error prompt" ng-show="error" id="error">
+        <p>Russell apologizes, but something went wrong.</p>
+        <button class="button error" ng-submit="retryRsvp()">Try again</button>
+    </div>
+
+    <div class="success prompt" ng-show="success">
+        <p class="headline headline-21px">Russell thanks you...</p>
+        <p>See you there!</p>
+    </div>
+
 
 </div>

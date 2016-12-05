@@ -6,3 +6,10 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+a.button {
+  &:visited {
+    text-decoration: none;
+    color: $secondary-purple;
+  }
+}

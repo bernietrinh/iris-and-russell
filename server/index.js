@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
 // models
-var rsvp = require('./models/rsvp');
+var Rsvp = require('./models/rsvp');
 
 // TODO: move to config?
 
@@ -42,7 +42,6 @@ var gracefulShutdown = function(msg, callback) {
     }));
 };
 
-
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
@@ -54,13 +53,30 @@ app.use(cookieParser());
 app.get('/api/rsvps', function (req, res) {
 
     rsvp.find(function (err, users) {
+
         if (err) res.send(err).status(500);
 
         res.json(users).status(200);
     });
 });
 
-app.post('/api/rsvps', function (req, res) {
+app.post('/api/rsvp', function (req, res) {
+
+    // create new instance of rsvp
+    var rsvp = new Rsvp(req.body);
+
+    // save object to db
+    rsvp.save(function (err) {
+
+        if (err) {
+            console.log('error');
+            res.sendStatus(400);
+        }
+
+        console.log("saved in db");
+        res.sendStatus(200);
+
+    });
 
 });
 
@@ -70,7 +86,7 @@ app.delete('/api/rsvps/:rsvpId', function (req, res) {
 
 
 app.listen(config.port, function () {
-    console.log('Example app listening on port 3000!');
+    console.log('Example app listening on port 8080!');
 });
 
 const clientPath = __dirname + "/../client/";
