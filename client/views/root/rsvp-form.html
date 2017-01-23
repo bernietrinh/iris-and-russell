@@ -4,7 +4,8 @@
     <i ng-click="dismiss()" class="rsvp-form-dismiss glyphicon glyphicon-remove"></i>
     <h1>Let us know you're coming!</h1>
 
-    <form name="rsvpForm" ng-submit="submit()" ng-hide="success || error">
+
+    <form name="rsvpForm" ng-submit="submitRsvp()" ng-hide="success || error">
 
         <!-- FIRST & LAST NAME -->
         <div layout="row">
@@ -44,7 +45,7 @@
 
                 <div ng-messages="rsvpForm.phone.$error">
                     <div ng-message="required" class="my-message">You must enter a phone number.</div>
-                    <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                    <div ng-message="pattern">Please enter a valid phone number without any spaces or hyphens.</div>
                 </div>
             </md-input-container>
         </div>
@@ -110,7 +111,7 @@
 
             <md-input-container flex="60" flex-gt-sm="40" ng-show="primary.guest">
                 <label>Name</label>
-                <input type="text" name="primary.guestName">
+                <input type="text" name="primary.guestName" ng-model="primary.guestName">
             </md-input-container>
 
         </div>
@@ -125,26 +126,19 @@
             <md-input-container flex="20" flex-gt-sm="10" ng-show="primary.hasChildren">
                 <label>Number</label>
                 <input type="number" step="any" name="primary.children" ng-model="primary.children" min="1"
-                       max="5" ng-pattern="/^1234$/" value="1"/>
+                       max="4" ng-pattern="/^[1234]$/" value="1"/>
             </md-input-container>
+
+            <div class="children">
+
+            </div>
         </div>
 
         <h2 class="headline-alt-21px">Allergies / Additional comments</h2>
-        <input type="text" name="allergies" />
+        <input type="text" name="allergies" ng-model="primary.comments" />
 
-        <button class="button rvsp-button" ng-click="submitRsvp(primary)">RSVP</button>
+        <input type="submit" class="button rvsp-button" value="RSVP" />
 
     </form>
-
-    <div class="error prompt" ng-show="error" id="error">
-        <p>Russell apologizes, but something went wrong.</p>
-        <button class="button error" ng-submit="retryRsvp()">Try again</button>
-    </div>
-
-    <div class="success prompt" ng-show="success">
-        <p class="headline headline-21px">Russell thanks you...</p>
-        <p>See you there!</p>
-    </div>
-
 
 </div>

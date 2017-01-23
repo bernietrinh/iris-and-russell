@@ -17,7 +17,7 @@ angular.module('iris-and-russell', ['ngAria', 'ngAnimate', 'ngMaterial', 'ngMess
                 controller: 'AdminController'
             });
 
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(false);
 
         $mdThemingProvider.theme('default')
             .primaryPalette('deep-purple')

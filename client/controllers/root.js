@@ -13,11 +13,6 @@ angular.module('iris-and-russell')
                 'src/img/slide12.jpg'
         ];
 
-        $scope.scrollTo = function (el) {
-
-        };
-
-
         $scope.showRsvpForm = showForm;
 
             function showForm() {
@@ -32,8 +27,8 @@ angular.module('iris-and-russell')
 
     }])
     .controller('RsvpFormModalController',
-        ['$scope', '$rsvpService', '$uibModalInstance',
-        function ($scope, $rsvpService, $uibModalInstance) {
+        ['$scope', '$rsvpService', '$uibModalInstance', '$mdDialog',
+        function ($scope, $rsvpService, $uibModalInstance, $mdDialog) {
 
         $scope.error = false;
         $scope.success = false;
@@ -48,21 +43,43 @@ angular.module('iris-and-russell')
             "Australia"
         ];
 
-        $scope.submitRsvp = function (primary) {
+        $scope.submitRsvp = function () {
 
-            $rsvpService.postRsvp(primary)
-            .then (function (res) {
+            $rsvpService.postRsvp($scope.primary)
+            .then (function () {
 
-                $scope.success = true;
+              var parent = angular.element(document.querySelector('.main'));
+
+              $mdDialog.show(
+                {
+                  parent: parent,
+                  clickOutsideToClose: true,
+                  escapeToClose: true,
+                  template: '<md-dialog md-theme="default" ng-class="dialog.css" class="_md md-default-theme md-transition-in" role="alertdialog" tabindex="-1">' +
+                  '<md-dialog-content class="md-dialog-content" role="document" tabindex="-1">' +
+                  '<h2 class="primary-purple md-title headline-alt-21px">Russell thanks you!</h2>' +
+                  '<div ng-if="::!dialog.mdHtmlContent" class="md-dialog-content-body">' +
+                  '<p class="ng-binding">See you there!</p>' +
+                  '</div></md-dialog-content>' +
+                  '</md-dialog>'
+                })
+
             })
-            .catch (function (err) {
+            .catch (function () {
 
-                $scope.error = true;
-            });
-        };
+              $mdDialog.show(
+                $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('.main')))
+                  .clickOutsideToClose(true)
+                  .title('Russell is sorry!')
+                  .textContent('Something went wrong!')
+                  .ok('Try again!')
+              );
+            })
+              .finally(function() {
 
-        $scope.retryRsvp = function () {
-          $scope.error = false;
+                $scope.dismiss();
+              });
         };
 
     }]);

@@ -20,11 +20,48 @@
 .person-photo {
   margin-left: auto;
   margin-right: auto;
-  height: 125px;
-  width: 125px;
-  background: blue;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
+  background-position: center center;
 }
+
+.ivon .person-photo {
+  background: url("../img/party/ivon.jpg");
+}
+
+.roxana .person-photo {
+  background: url("../img/party/roxana.jpg");
+}
+
+.carly .person-photo {
+  background: url("../img/party/carly.jpg");
+}
+
+.helen .person-photo {
+  background: url("../img/party/helen.jpg");
+}
+
+.kevin .person-photo {
+  background: url("../img/party/kevin.jpg");
+}
+
+.calvin .person-photo {
+  background: url("../img/party/calvin.jpg");
+}
+
+.raymond .person-photo {
+  background: url("../img/party/ray.jpg");
+}
+
+.simon .person-photo {
+  background: url("../img/party/simon.jpg");
+}
+
+.bernie .person-photo {
+  background: url("../img/party/bernie.jpg");
+}
+
 
 @include media-query(tablet-and-up) {
 
@@ -32,12 +69,4 @@
     padding: 30px;
   }
 
-  .person-photo {
-    margin-left: auto;
-    margin-right: auto;
-    height: 200px;
-    width: 200px;
-    background: blue;
-    border-radius: 50%;
-  }
 }

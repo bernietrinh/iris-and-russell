@@ -52,11 +52,11 @@ app.use(cookieParser());
 // routes ================================================
 app.get('/api/rsvps', function (req, res) {
 
-    rsvp.find(function (err, users) {
+  Rsvp.find(function (err, rsvps) {
 
         if (err) res.send(err).status(500);
 
-        res.json(users).status(200);
+        res.json(rsvps).status(200);
     });
 });
 
@@ -69,19 +69,33 @@ app.post('/api/rsvp', function (req, res) {
     rsvp.save(function (err) {
 
         if (err) {
-            console.log('error');
+            console.log('error', err);
             res.sendStatus(400);
+
+        } else {
+          console.log("saved in db");
+          res.sendStatus(200);
+
         }
 
-        console.log("saved in db");
-        res.sendStatus(200);
 
     });
 
 });
 
-app.delete('/api/rsvps/:rsvpId', function (req, res) {
+app.delete('/api/rsvps/remove/:rsvpId', function (req, res) {
 
+  Rsvp.remove({
+    _id : req.params.rsvpId
+  }, function(err) {
+
+    if (err) res.send(err);
+
+    Rsvp.find(function (err, rsvps) {
+
+      res.json(rsvps).status(200);
+    });
+  });
 });
 
 
