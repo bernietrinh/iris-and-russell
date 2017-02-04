@@ -13,7 +13,7 @@ var Rsvp = require('./models/rsvp');
 
 // database config
 const config = {
-    port : process.env.PORT || 3000, // set our port,
+    port : process.env.PORT || 8080, // set our port,
     url : 'mongodb://btrinh:password123@ds019836.mlab.com:19836/iris-and-wedding'
 };
 

@@ -15,11 +15,30 @@
   background-position: center center;
 }
 
+.gallery-image-0, .gallery-image-1 {
+  background-position: left bottom;
+}
+
+.gallery-image-3 {
+  background-position: right bottom;
+}
+.gallery-image-5 {
+  background-position-x: -190px;
+}
+
+.gallery-image-7 {
+  background-position-x: -550px;
+}
+
 @include media-query(tablet-and-up) {
   .gallery-image {
     height: 110vh;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  .gallery-image-0, .gallery-image-1 {
     background-position: center top;
   }
 
