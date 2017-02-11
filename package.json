@@ -4,7 +4,7 @@
   "description": "Wedding site for Iris and Russell",
   "scripts": {
     "start": "nodemon server/index.js && cd client && gulp",
-    "deploy": "git push heroku master"
+    "deploy": "git push heroku master && git push origin HEAD"
   },
   "keywords": [
     "heroku"
