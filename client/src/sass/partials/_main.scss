@@ -1,9 +1,13 @@
 .main {
   background: url("../img/main.jpg") no-repeat bottom center;
   background-size: cover;
+  min-height: auto;
+  height: 100vh;
 }
 
 nav.main-nav {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   padding-top: 5px;
 
@@ -53,6 +57,11 @@ nav.main-nav {
     background-size: cover;
     background-attachment: fixed;
     position: relative;
+  }
+
+  nav.main-nav {
+    flex-direction: row;
+    justify-content: center;
   }
 
   .main-content {
