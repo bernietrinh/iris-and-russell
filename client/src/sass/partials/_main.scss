@@ -1,9 +1,7 @@
 .main {
   background: url("../img/main.jpg") no-repeat bottom center;
   background-size: cover;
-  max-width: 100%;
-  min-height: auto;
-  height: 100vh;
+  min-height: 600px;
 }
 
 nav.main-nav {
@@ -58,6 +56,8 @@ nav.main-nav {
     background-size: cover;
     background-attachment: fixed;
     position: relative;
+    height: 100vh;
+
   }
 
   nav.main-nav {
