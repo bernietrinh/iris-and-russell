@@ -46,7 +46,9 @@ angular.module('iris-and-russell')
 
         $scope.submitRsvp = function () {
 
-            $rsvpService.postRsvp($scope.primary)
+          $scope.dismiss();
+
+          $rsvpService.postRsvp($scope.primary)
             .then (function () {
 
               var parent = angular.element(document.querySelector('.main'));
@@ -79,7 +81,7 @@ angular.module('iris-and-russell')
             })
               .finally(function() {
 
-                $scope.dismiss();
+                // $scope.dismiss();
               });
         };
 
