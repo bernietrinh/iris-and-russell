@@ -64,6 +64,7 @@ angular.module('iris-and-russell')
         $scope.showRsvpForm = showForm;
 
             function showForm() {
+              window.scrollTo(0, 0);
                 $uibModal.open({
                     animation: true,
                     ariaLabelledBy: 'rsvp-form',
